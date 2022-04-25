@@ -8,6 +8,19 @@
   check_mode: false
   changed_when: false
   listen: (Handler - NGINX Config) Run NGINX
+  when: not nginx_container_name is defined
+
+- name: (Handler - NGINX Config) Check NGINX in docker container
+  community.docker.docker_container_exec:
+    command: nginx -t
+    chdir: /etc/nginx/
+    container: '{{ nginx_container_name }}'
+  register: config_check
+  ignore_errors: true
+  check_mode: false
+  changed_when: false
+  listen: (Handler - NGINX Config) Run NGINX
+  when: nginx_container_name is defined
 
 - name: (Handler - NGINX Config) Print NGINX error if syntax check fails
   ansible.builtin.debug:
