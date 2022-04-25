@@ -135,6 +135,9 @@ This role has multiple variables. The descriptions and defaults for all these va
 | **[`template.yml`](https://github.com/nginxinc/ansible-role-nginx-config/blob/main/defaults/main/template.yml)** | NGINX config template variables |
 | **[`upload.yml`](https://github.com/nginxinc/ansible-role-nginx-config/blob/main/defaults/main/upload.yml)** | NGINX config/HTML/SSL upload variables |
 
+#### Extra variables:
+  - `nginx_container_name can be set to tell this role that handler tasks need to run in a docker container`
+
 ## Example Playbooks
 
 Working functional playbook examples can be found in the **[`molecule/`](https://github.com/nginxinc/ansible-role-nginx-config/blob/main/molecule/)** folder in the following files:
